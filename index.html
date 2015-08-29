@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rise Google Sheet Demo</title>
+	<script src="src/_bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+ 	<link rel="import" href="src/_bower_components/rise-google-sheet/rise-google-sheet.html">
+ 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+</head>
+<body>
+	<rise-google-sheet
+      		key="1Aopk_gdurtAdvxr5u4X9at7K0EkWDBqD3VkgJ6je5y4" 
+      	refresh="30">
+      	<table id="sheetTable" class="pure-table pure-table-bordered">
+          <thead>
+          <tr>
+            <!-- dynamically add column header titles -->
+          </tr>
+          </thead>
+          <tbody>
+          <!-- dynamically populate table cells -->
+          </tbody>
+        </table>
+</rise-google-sheet>
+<script type="text/javascript" src="demo.js"></script>
+<!-- Initialize the Component -->
+<script>
+  	var sheet = document.querySelector('rise-google-sheet');
+
+ 	// Respond to events it fires.
+ 	sheet.addEventListener('rise-google-sheet-response', function(e) {
+  		if (e.detail && e.detail.cells) {
+      		console.log(e.detail.cells); // Array of cell objects
+   		 }
+  	});
+
+	// Executes a request.
+sheet.go();
+
+ // new instance of DemoPlaylist object
+      var demo = new demoSheet();
+
+      // initialize the content
+      demo.init();
+</script>
+</body>
+</html>
