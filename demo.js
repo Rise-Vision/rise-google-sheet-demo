@@ -64,7 +64,7 @@ var demoSheet = function () {
       tr = document.createElement("tr"),
       td;
 
-    // loop through cells data and construct row markup
+// loops through cell data and constructs row markup
     for (var i = index; i < (index + numOfColumns); i += 1) {
       td = document.createElement("td");
       td.innerHTML = (cells[i]) ? cells[i].gs$cell.$t : "";
@@ -81,6 +81,7 @@ var demoSheet = function () {
     return fragment;
   }
 
+//builds up the rows in the body of the table
   function _build(cells) {
     var numOfColumns = _getNumOfColumns(cells),
       tbody = document.getElementsByTagName("tbody"),
@@ -100,11 +101,9 @@ var demoSheet = function () {
     });
 
     tbody[0].appendChild(fragment);
-
-    // content is Ready
-    // _ready();
   }
 
+//initializes the code to construct the demo table
   function init() {
     // reference to rise-google-sheet element
     var googleSheet = document.querySelector("rise-google-sheet");
